@@ -33,3 +33,4 @@ while true; do
 		* ) echo "Yes or no?";;
 	esac
 done
+rm -r ircii
