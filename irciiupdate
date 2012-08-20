@@ -1,0 +1,35 @@
+#!/bin/sh
+# cd /home/doc/wget/ircii/
+
+rm -r ircii
+
+wget ftp://ircii.warped.com/pub/ircII/ircii-current.tar.bz2
+tar jxf ircii-current.tar.bz2
+rm ircii-current.tar.bz2
+
+cd ircii
+
+
+
+
+
+
+
+
+
+while true; do
+	read -p "Do you want to configure?" yn
+	case $yn in
+		[Yy]* ) ./configure --prefix=/usr/local; break;;
+		[Nn]* ) break;;
+		* ) echo "Yes or no?";;
+	esac
+done
+while true; do 
+	read -p "Do you want to edit config.h? (ircII will be recompiled after either operation)" yn
+	case $yn in
+		[Yy]* ) vim config.h && sudo make install clean; break;;
+		[Nn]* ) make install clean; break;;
+		* ) echo "Yes or no?";;
+	esac
+done
