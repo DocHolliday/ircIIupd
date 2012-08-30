@@ -1,13 +1,13 @@
 #!/bin/sh
-# cd /home/doc/wget/ircii/
+cd /tmp/
 
-rm -r ircii
+# rm -r ircii
 
 wget ftp://ircii.warped.com/pub/ircII/ircii-current.tar.bz2
 tar jxf ircii-current.tar.bz2
 rm ircii-current.tar.bz2
 
-cd ircii
+cd /tmp/ircii
 
 
 
@@ -33,4 +33,4 @@ while true; do
 		* ) echo "Yes or no?";;
 	esac
 done
-rm -r ircii
+rm -r /tmp/ircii
