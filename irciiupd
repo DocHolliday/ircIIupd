@@ -29,7 +29,7 @@ while true; do
 	read -p "Do you want to edit config.h? (ircII will be recompiled after either operation)" yn
 	case $yn in
 		[Yy]* ) vim config.h && sudo make install clean; break;;
-		[Nn]* ) make install clean; break;;
+		[Nn]* ) sudo make install clean; break;;
 		* ) echo "Yes or no?";;
 	esac
 done
