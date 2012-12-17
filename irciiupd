@@ -1,36 +1,40 @@
 #!/bin/sh
 cd /tmp/
-
-# rm -r ircii
-
+rm -r ircii
 wget ftp://ircii.warped.com/pub/ircII/ircii-current.tar.bz2
 tar jxf ircii-current.tar.bz2
 rm ircii-current.tar.bz2
-
 cd /tmp/ircii
-
-
-
-
-
-
-
-
-
 while true; do
-	read -p "Do you want to configure?" yn
+	read -p "Do you want to install to [u]/usr/local or [h]$HOME?" uh
+	case $uh in
+		[Uu]* ) ./configure --prefix=/usr/local; break;;
+		[Hh]* ) mkdir ~/ircii && ./configure --prefix=$HOME/ircii; break;;
+		* ) echo "Please choose U or H";;
+	esac
+done
+while true; do 
+	read -p "Do you want to edit config.h?" yn
 	case $yn in
-		[Yy]* ) ./configure --prefix=/usr/local; break;;
-		[Nn]* ) break;;
+		[Yy]* ) vim config.h && make clean; break;;
+		[Nn]* ) make; break;;
 		* ) echo "Yes or no?";;
 	esac
 done
 while true; do 
-	read -p "Do you want to edit config.h? (ircII will be recompiled after either operation)" yn
+	read -p "Do you wish to install for all users?" yn
 	case $yn in
-		[Yy]* ) vim config.h && sudo make install clean; break;;
-		[Nn]* ) sudo make install clean; break;;
-		* ) echo "Yes or no?";;
+		[Yy]* ) sudo make install clean; break;;
+		[Nn]* ) break;;
+		* ) echo "You can't have it both ways"
 	esac
 done
-# rm -r /tmp/ircii
+while true; do
+	read -p "Install for just you?" yn
+	case $yn in
+		[Yy]* ) make install clean; break;;
+		[Nn]* ) break;;
+		* ) echo "Ok, neither."
+	esac
+done
+rm -r /tmp/ircii
