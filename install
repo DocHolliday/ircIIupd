@@ -1,0 +1,7 @@
+#!/bin/sh
+cp -r ./doc/ /tmp/
+./irciiupd
+clear
+echo "Installing manpages"
+su
+cp /tmp/doc/irciiupd.1 /usr/share/man/man1/
