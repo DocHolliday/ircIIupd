@@ -1,4 +1,5 @@
 #!/bin/sh
+cat ./messages
 cd /tmp/
 rm -r ircii > /dev/null
 wget ftp://ircii.warped.com/pub/ircII/ircii-current.tar.bz2 -o /dev/null
