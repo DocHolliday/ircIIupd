@@ -1,7 +1,6 @@
 #!/bin/sh
-cp -r ./doc/ /tmp/
-./irciiupd
-clear
+echo "Installing script"
+su -c "cp ./irciiupd /usr/bin/"
+#clear
 echo "Installing manpages"
-su
-cp /tmp/doc/irciiupd.1 /usr/share/man/man1/
+su -c "cp ./doc/irciiupd.1 /usr/share/man/man1/"
