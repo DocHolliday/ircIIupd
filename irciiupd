@@ -1,7 +1,7 @@
 #!/bin/sh
 cd /tmp/
-rm -r ircii
-wget ftp://ircii.warped.com/pub/ircII/ircii-current.tar.bz2
+rm -r ircii > /dev/null
+wget ftp://ircii.warped.com/pub/ircII/ircii-current.tar.bz2 -o /dev/null
 tar jxf ircii-current.tar.bz2
 rm ircii-current.tar.bz2
 cd /tmp/ircii
